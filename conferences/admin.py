@@ -8,6 +8,8 @@ class ConferenceAdmin(admin.ModelAdmin):
     ordering = ['start_date']
     list_filter = ['category', 'start_date']
     readonly_fields = ('created_at', 'update_at')
+
+    autocomplete_fields = ['category'] # autocompletion 
     
     fieldsets = (
         ('Informations générales', {
@@ -21,6 +23,6 @@ class ConferenceAdmin(admin.ModelAdmin):
         }),
         ('Dates de suivi', {
             'fields': ('created_at', 'update_at'),
-            'classes': ('collapse',)  # Masque ces champs par défaut
+            'classes': ('collapse',) 
         }),
     )
