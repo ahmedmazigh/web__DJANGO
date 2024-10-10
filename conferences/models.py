@@ -34,3 +34,6 @@ class Conference(models.Model):
 
     class Meta:
         verbose_name_plural = "Conferences"
+
+    def __str__(self):
+        return f"{self.title}|{self.start_date}-{self.end_date}|{self.capacity} participants"
