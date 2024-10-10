@@ -19,6 +19,9 @@ class Participant(AbstractUser):
     update_at = models.DateTimeField(auto_now=True)
 
     USERNAME_FIELD = 'username'
+    
+    class Meta:
+        verbose_name_plural = "Participants"
 
 class Reservation(models.Model):
     conference = models.ForeignKey(Conference, on_delete=models.CASCADE)
@@ -28,3 +31,4 @@ class Reservation(models.Model):
     
     class Meta:
         unique_together = ('conference', 'participant')
+        verbose_name_plural = "Reservations"
