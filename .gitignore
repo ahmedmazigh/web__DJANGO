@@ -1,8 +1,5 @@
 db.sqlite3
 venv
 
-users/__pycache__/
-myProject/__pycache__/
-conferences/__pycache__/
-categories/__pycache__/
+__pycache__/
 *.pyc
