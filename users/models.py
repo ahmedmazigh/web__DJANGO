@@ -33,6 +33,11 @@ class Participant(AbstractUser):
 
     USERNAME_FIELD = 'username'
 
+    reservations = models.ManyToManyField(Conference,
+                                          through='Reservation',
+                                          related_name='reservations'
+                                          )
+
     class Meta:
         verbose_name_plural = "Participants"
 
