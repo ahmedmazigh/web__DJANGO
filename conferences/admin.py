@@ -1,5 +1,12 @@
 from django.contrib import admin
 from .models import Conference
+from users.models import Reservation
+
+class ReservationInline(admin.TabularInline):
+    model = Reservation
+    extra = 1
+    readonly_fields = ('reservation_date', )
+    can_delete = False
 
 @admin.register(Conference)
 class ConferenceAdmin(admin.ModelAdmin):
@@ -27,4 +34,6 @@ class ConferenceAdmin(admin.ModelAdmin):
             'classes': ('collapse',) 
         }),
     )
+
+    inlines = [ReservationInline]
 
