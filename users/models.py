@@ -53,13 +53,13 @@ class Reservation(models.Model):
 
     def clean(self):
         # date future
-        if self.conference.start_date <= timezone.now():
+        if self.conference.start_date <= timezone.now().date():
             raise ValidationError("Vous ne pouvez réserver que des conférences futures.")
         
         # maximum 3 conferences par jour
         reservations_today = Reservation.objects.filter(
             participant=self.participant,
-            reservation_date__date=self.reservation_date.date()
+            reservation_date__date=self.reservation_date
         ).count()
 
         if reservations_today >= 3:

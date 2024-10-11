@@ -30,10 +30,10 @@ class Conference(models.Model):
             raise ValidationError("La date de début de la conférence doit être dans le futur.")
         
         if self.end_date <= self.start_date:
-            raise ValidationError("La date de fin doit être postérieure à la date de début.")
+            raise ValidationError("La date de fin doit être avant la date de début.")
 
     class Meta:
         verbose_name_plural = "Conferences"
 
     def __str__(self):
-        return f"{self.title}|{self.start_date}-{self.end_date}|{self.capacity} participants"
+        return f"{self.title} ({self.start_date}-{self.end_date})"
