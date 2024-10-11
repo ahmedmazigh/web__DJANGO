@@ -8,6 +8,7 @@ class ConferenceAdmin(admin.ModelAdmin):
     ordering = ['start_date']
     list_filter = ['category', 'start_date']
     readonly_fields = ('created_at', 'update_at')
+    list_per_page=2
 
     autocomplete_fields = ['category'] # autocompletion 
     

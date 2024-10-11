@@ -59,7 +59,7 @@ class Reservation(models.Model):
         # maximum 3 conferences par jour
         reservations_today = Reservation.objects.filter(
             participant=self.participant,
-            reservation_date__date=self.reservation_date
+            reservation_date__date=timezone.now().date()
         ).count()
 
         if reservations_today >= 3:
