@@ -1,7 +1,7 @@
 from django.contrib import admin
 from .models import Conference
-admin.site.register(Conference)
 
+@admin.register(Conference)
 class ConferenceAdmin(admin.ModelAdmin):
     list_display = ('title', 'start_date', 'end_date', 'location', 'category', 'capacity', 'price')
     search_fields = ['title']
@@ -26,3 +26,4 @@ class ConferenceAdmin(admin.ModelAdmin):
             'classes': ('collapse',) 
         }),
     )
+
